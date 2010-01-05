@@ -1,0 +1,24 @@
+#comment_preview,
+#comment_preview + form {
+  background-color: #FFFACC;
+  border-bottom-width: 0;
+}
+#comment_preview A,
+#comment_preview + form A {
+  color: #41809d;
+}
+#comment_preview + .reply .formatting {
+  font-size: 90%;
+}
+
+#files .file,
+#readme {
+  display: block !important;
+}
+
+body.edit-preview #file-edit-link {
+  font: 12px helvetica,arial,freesans,clean,sans-serif;
+}
+body.edit-preview #file-edit-link span {
+  line-height: 25px;
+}
