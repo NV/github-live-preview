@@ -20,7 +20,7 @@ if (comments_form.length) {
   comments_form.children('textarea').bind('input', function input_handler(){
     comment_body.html( makeHtml(this.value) );
   });
-  comments_form.find('.formatting').prepend('<a class="preview-link" href="/NV/github-live-preview">Github Markdown Preview</a> &middot; ')
+  comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ')
 } else if ($('#reply').length) {
   // Inbox reply
   comments_form = $('#reply');
@@ -42,7 +42,7 @@ if (comments_form.length) {
   comments_form.children('textarea').bind('input', function input_handler(){
     comment_body.html( makeHtml(this.value) );
   });
-  comments_form.find('.formatting').prepend('<a class="preview-link" href="/NV/github-live-preview">Github Markdown Preview</a> &middot; ')
+  comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ')
 } else if ($('#readme .wikistyle').length && $('#file-edit-link').length) {
   // Markdown files
   comment_body = $('#readme .wikistyle');
