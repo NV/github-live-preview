@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name        GitHub markdown preview
-// @namespace   nv.github.com/github-preview
+// @name        GitHub Markdown Preview
+// @namespace   nv.github.com/github-live-preview
 // @include     http://github.com/*/commit/*
 // @include     https://github.com/*/commit/*
 // @include     http://github.com/inbox/*
@@ -19,7 +19,7 @@
 
 (function init(){
 
-var comments_preview = '(' + function comments_preview () {
+var markdown_preview = '(' + function markdown_preview () {
 
 /*> gfm-showdown.js */
 
@@ -41,7 +41,7 @@ function addStyle (css) {
 addStyle("/*> core.css */");
 
 var script = document.createElement('script');
-script.appendChild(document.createTextNode(comments_preview));
+script.appendChild(document.createTextNode(markdown_preview));
 document.body.appendChild(script);
 
 })();
