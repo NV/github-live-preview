@@ -16,10 +16,11 @@ task :userjs do
   end
   jspp.chmod 0755
   jspp.close
-  tag, commit = `git describe`.split('-')
-  tag.slice! 0
+  tag = `git describe --tags`.split('-').first
+  commit = `git rev-list --full-history #{tag}.. -- src/ | wc -l`.strip
   system "build/jspp src/github-markdown-preview.js > #{USERJS}"
   file = File.read USERJS
+  tag.slice! 0
   file.sub!(%r{^// *@version *$}, '\0' << tag << '.' << commit)
   File.open USERJS, 'w' do |f|
     f.puts file
@@ -30,18 +31,17 @@ end
 task :upload do
   require 'net/github-upload'
   file = File.read USERJS
-  version = file.match(%r{// *@version *(.+?)$})[1]
-  description = file.match(%r{// *@description *(.+?)$})[1]
+  version = file[%r{// *@version *(.+?)$}, 1]
+  description = file[%r{// *@description *(.+?)$}, 1]
   gh = Net::GitHub::Upload.new(
     :login => `git config github.user`.chomp,
     :token => `git config github.token`.chomp
   )
-  direct_link = gh.upload(
+  puts gh.upload(
     :repos => 'github-live-preview',
     :file  => USERJS,
     :name => "github-markdown-preview-v#{version}.user.js",
     :content_type => 'text/javascript',
     :description => description
   )
-  puts direct_link
 end
