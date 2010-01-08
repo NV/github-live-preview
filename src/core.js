@@ -43,7 +43,7 @@ if (comments_form.length) {
     comment_body.html( makeHtml(this.value) );
   });
   comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ')
-} else if ($('#readme .wikistyle').length && $('#file-edit-link').length) {
+} else if (GitHub.hasWriteAccess && $('#readme .wikistyle').length && $('#file-edit-link').length) {
   // Markdown files
   comment_body = $('#readme .wikistyle');
   document.body.className += ' edit-preview';
