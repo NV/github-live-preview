@@ -48,16 +48,7 @@ if (comments_form.length) {
   comment_body = $('#readme .wikistyle');
   document.body.className += ' edit-preview';
   $('#file-edit-link').addClass('minibutton').wrapInner('<span></span>');
-  $('#files').bind('DOMNodeInserted', function(e){
-    if (e.target.className === 'blob-editor') {
-      var textarea = $(e.target).find('textarea[name=value]');
-      if (textarea.length) {
-        e.target.className += ' github-preview-blob';
-        $('#files').unbind('DOMNodeInserted');
-        textarea.bind('input', function input_handler(){
-          comment_body.html( makeHtml(this.value) );
-        });
-      }
-    }
+  $('#files textarea[name=value]').live('input', function input_handler(){
+    comment_body.html( makeHtml(this.value) );
   });
 }
