@@ -13,7 +13,7 @@
 // @include     https://github.com/*/*/blob/*/*.mdown
 // @description Live Markdown preview for commit’s comments, markdown files, and inbox messages
 // @version     
-// @copyright   2009+, Nikita Vasilyev (http://github.com/NV/github-live-preview)
+// @copyright   2009+, Nikita Vasilyev
 // @licence     BSD
 // ==/UserScript==
 
