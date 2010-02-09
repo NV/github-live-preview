@@ -7,7 +7,7 @@ Demos: [README.markdown](http://nv.github.com/github-live-preview/examples/readm
 WYSIWYM Markdown editor for github.com
 
 ## Install [github-markdown-preview.user.js](http://userscripts.org/scripts/source/65788.user.js)
-Tesded on Firefox 3.5, Google Chrome 4, Opera 10, and Safari GreaseKit.
+Tested on Firefox 3.5, Google Chrome 4, Opera 10, and Safari GreaseKit.
 
 ## [Google Chrome extension](https://chrome.google.com/extensions/detail/cpojebknccclkjabfngjlcknonpmhhol)
 Like UserJS, but with autoupdate and nice icon.
