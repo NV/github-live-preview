@@ -21,29 +21,19 @@
 
 (function init(){
 
-var markdown_preview = '(' + function markdown_preview () {
-
-/*> gfm-showdown.js */
-
-/*> core.js */
-
-} + ')();';
-
-function addStyle (css) {
-  var head = document.getElementsByTagName('head')[0];
-  if (!head) {
-    return null;
+  function addStyle (css) {
+    var head = document.getElementsByTagName('head')[0];
+    if (!head) {
+      return null;
+    }
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.appendChild(document.createTextNode(css));
+    head.appendChild(style);
+    return style;
   }
-  var style = document.createElement("style");
-  style.type = "text/css";
-  style.appendChild(document.createTextNode(css));
-  head.appendChild(style);
-  return style;
-}
-addStyle("/*> core.css */");
+  addStyle("/*> core.css */");
 
-var script = document.createElement('script');
-script.appendChild(document.createTextNode(markdown_preview));
-document.body.appendChild(script);
+  /*> chrome.js */
 
 })();
