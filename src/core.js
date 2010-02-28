@@ -5,7 +5,7 @@ var makeHtml = (new Showdown.converter).makeHtml,
     comments_form = $('#comments > form');
 
 function build_wikistyle_comment_preview(){
-  return $('<div class="comment wikistyle" id="comment_preview">\
+  return $('<div class="comment wikistyle comment-preview">\
     <div class="meta">\
       <a href="/'+ github_user +'"><img alt="" class="gravatar" height="16" src="'+ gravatar_url.replace('-20', '-16').replace('s=20', 's=16') +'" width="16" /></a>\
       <span>\
@@ -28,6 +28,8 @@ if (comments_form.length) {
 } else if ($('#issue_list').length) {
   // Issues
   $('#issue_list .new_issue_comment').each(function(i, comments_form){
+    var prev = comments_form.previousElementSibling;
+    if (prev && prev.className && prev.className.indexOf('comment-preview') > -1) return null;
     comments_form = $(comments_form);
     var comment_preview = build_wikistyle_comment_preview();
     comments_form.before(comment_preview);
@@ -39,7 +41,7 @@ if (comments_form.length) {
 } else if ($('#reply').length) {
   // Inbox reply
   comments_form = $('#reply');
-  comment_preview = $('<div id="comment_preview">\
+  comment_preview = $('<div class="comment-preview">\
     <div class="header">\
       <div class="gravatar">\
         <img width="30" height="30" src="'+ gravatar_url.replace('-20', '-30').replace('s=20', 's=30') +'" alt=""/>\

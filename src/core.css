@@ -1,13 +1,13 @@
-#comment_preview,
-#comment_preview + form {
+.comment-preview,
+.comment-preview + form {
   background-color: #FFFACC;
   border-bottom-width: 0;
 }
-#comment_preview A,
-#comment_preview + form A {
+.comment-preview A,
+.comment-preview + form A {
   color: #41809d;
 }
-#comment_preview + .reply .formatting {
+.comment-preview + .reply .formatting {
   font-size: 90%;
 }
 
