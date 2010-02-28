@@ -3,6 +3,8 @@
 // @namespace   nv.github.com/github-live-preview
 // @include     http://github.com/*/commit/*
 // @include     https://github.com/*/commit/*
+// @include     http://github.com/*/*/issues*
+// @include     https://github.com/*/*/issues*
 // @include     http://github.com/inbox/*
 // @include     https://github.com/inbox/*
 // @include     http://github.com/*/*/blob/*/*.md

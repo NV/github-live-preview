@@ -561,38 +561,6 @@
   }
 })(jQuery);
 jQuery.cookie = function (a, d, b) {
-  if (typeof d != "undefined") {
-    b = b || {};
-    if (d === null) {
-      d = "";
-      b.expires = -1
-    }
-    var c = "";
-    if (b.expires && (typeof b.expires == "number" || b.expires.toUTCString)) {
-      if (typeof b.expires == "number") {
-        c = new Date;
-        c.setTime(c.getTime() + b.expires * 24 * 60 * 60 * 1000)
-      } else c = b.expires;
-      c = "; expires=" + c.toUTCString()
-    }
-    var e = b.path ? "; path=" + b.path : "",
-    f = b.domain ? "; domain=" + b.domain : "";
-    b = b.secure ? "; secure" : "";
-    document.cookie = [a, "=", encodeURIComponent(d), c, e, f, b].join("")
-  } else {
-    d = null;
-    if (document.cookie && document.cookie != "") {
-      b = document.cookie.split(";");
-      for (c = 0; c < b.length; c++) {
-        e = jQuery.trim(b[c]);
-        if (e.substring(0, a.length + 1) == a + "=") {
-          d = decodeURIComponent(e.substring(a.length + 1));
-          break
-        }
-      }
-    }
-    return d
-  }
 };
 (function (a) {
   a.dimensions = {
@@ -3458,7 +3426,7 @@ GitHub.Issues = {
   currentListHash: "list",
   init: function () {
     var a, d;
-    GitHub.Issues.repoURL = window.location.pathname.match(/^\/[^\/]+\/[^\/]+\/issues/)[0] + "/";
+    GitHub.Issues.repoURL = "/NV/github-live-preview/issues/";
     if (window.location.hash && (d = window.location.hash.match(/sort=(\w+)/))) setTimeout(function () {
       $("#sort_by_" + d[1]).click()
     },

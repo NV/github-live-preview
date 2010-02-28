@@ -4,9 +4,8 @@ var makeHtml = (new Showdown.converter).makeHtml,
     comment_body,
     comments_form = $('#comments > form');
 
-if (comments_form.length) {
-  // Commit comments
-  comment_preview = $('<div class="comment wikistyle" id="comment_preview">\
+function build_wikistyle_comment_preview(){
+  return $('<div class="comment wikistyle" id="comment_preview">\
     <div class="meta">\
       <a href="/'+ github_user +'"><img alt="" class="gravatar" height="16" src="'+ gravatar_url.replace('-20', '-16').replace('s=20', 's=16') +'" width="16" /></a>\
       <span>\
@@ -15,12 +14,28 @@ if (comments_form.length) {
     </div>\
     <div class="body"><p></p></div>\
   </div>');
+}
+
+if (comments_form.length) {
+  // Commit comments
+  comment_preview = build_wikistyle_comment_preview();
   comment_body = comment_preview.children('.body');
   comments_form.before(comment_preview);
   comments_form.children('textarea').bind('input', function input_handler(){
     comment_body.html( makeHtml(this.value) );
   });
-  comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ')
+  comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ');
+} else if ($('#issue_comment_body').length) {
+  // Issues
+  comments_form = $('#new_issue_comment');
+  comment_preview = build_wikistyle_comment_preview();
+  comment_body = comment_preview.children('.body');
+  if (comments_form.prev()[0].id !== 'comment_preview') {
+    comments_form.before(comment_preview);
+  }
+  comments_form.children('textarea').bind('input', function input_handler(){
+    comment_body.html( makeHtml(this.value) );
+  });
 } else if ($('#reply').length) {
   // Inbox reply
   comments_form = $('#reply');
