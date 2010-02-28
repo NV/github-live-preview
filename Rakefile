@@ -16,7 +16,9 @@ task :userjs do
   end
   jspp.chmod 0755
   jspp.close
-  tag = `git describe --tags`.split('-').first
+  git_describe_tags = `git describe --tags`
+  tag = git_describe_tags.split('-').first || git_describe_tags
+  tag.strip!
   commit = `git rev-list --full-history #{tag}.. -- src/ | wc -l`.strip
   system "build/jspp src/github-markdown-preview.js > #{USERJS}"
   file = File.read USERJS
