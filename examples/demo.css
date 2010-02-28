@@ -1,0 +1,11 @@
+.attention-please,
+#file-edit-link {
+  -webkit-box-shadow: #fc00ff 0 0 12px;
+  -webkit-border-radius: 3px;
+  -moz-box-shadow: #fc00ff 0 0 12px;
+  -moz-border-radius: 3px;
+}
+#file-edit-link {
+  box-shadow: #fc00ff 0 0 12px;
+  border-radius: 3px;
+}

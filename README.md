@@ -1,6 +1,9 @@
 [![Commit comment](http://cloud.github.com/downloads/NV/github-live-preview/commit.gif)](http://nv.github.com/github-live-preview/examples/commit.html)
 
-Demos: [README.markdown](http://nv.github.com/github-live-preview/examples/readme-markdown.html), [commit comments](http://nv.github.com/github-live-preview/examples/commit.html), [inbox reply](http://nv.github.com/github-live-preview/examples/reply.html).
+Demos: [README.markdown](http://nv.github.com/github-live-preview/examples/readme-markdown.html),
+[commit comments](http://nv.github.com/github-live-preview/examples/commit.html),
+[issues](http://nv.github.com/github-live-preview/examples/issues.html#issue/2),
+[inbox reply](http://nv.github.com/github-live-preview/examples/reply.html).
 
 # Github Markdown Preview
 
