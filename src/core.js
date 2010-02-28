@@ -25,16 +25,16 @@ if (comments_form.length) {
     comment_body.html( makeHtml(this.value) );
   });
   comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ');
-} else if ($('#issue_comment_body').length) {
+} else if ($('#issue_list').length) {
   // Issues
-  comments_form = $('#new_issue_comment');
-  comment_preview = build_wikistyle_comment_preview();
-  comment_body = comment_preview.children('.body');
-  if (comments_form.prev()[0].id !== 'comment_preview') {
+  $('#issue_list .new_issue_comment').each(function(i, comments_form){
+    comments_form = $(comments_form);
+    var comment_preview = build_wikistyle_comment_preview();
     comments_form.before(comment_preview);
-  }
-  comments_form.children('textarea').bind('input', function input_handler(){
-    comment_body.html( makeHtml(this.value) );
+    var comment_preview_body = comment_preview.children('.body');
+    comments_form.children('textarea').bind('input', function input_handler(){
+      comment_preview_body.html( makeHtml(this.value) );
+    });
   });
 } else if ($('#reply').length) {
   // Inbox reply
