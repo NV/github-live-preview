@@ -1,5 +1,6 @@
 require 'rake/clean'
 require 'open-uri'
+require 'jspp'
 
 CLEAN.include('build/jspp')
 CLOBBER.include('build')
@@ -8,21 +9,12 @@ USERJS = 'build/github-markdown-preview.user.js'
 
 task :default => :userjs
 
-task :jspp do
-  mkdir 'build' unless File.directory? 'build'
-  jspp = File.new 'build/jspp', 'w'
-  jspp.write open('http://nv.github.com/js-preprocessor/bin/jspp').read
-  jspp.chmod 0755
-  jspp.close
-end
-
-task :userjs => :jspp do
+task :userjs do
   git_describe_tags = `git describe --tags`
   tag = git_describe_tags.split('-').first || git_describe_tags
   tag.strip!
   commit = `git rev-list --full-history #{tag}.. -- src/ | wc -l`.strip
-  system "build/jspp src/github-markdown-preview.js > #{USERJS}"
-  file = File.read USERJS
+  file = JSPP File.read('src/github-markdown-preview.js'), 'src'
   tag.slice! 0
   file.sub!(%r{^// *@version *$}, '\0' << tag << '.' << commit)
   File.open USERJS, 'w' do |f|
@@ -31,9 +23,12 @@ task :userjs => :jspp do
   puts 'build/github-markdown-preview.user.js done'
 end
 
-task :chrome => :jspp do
+task :chrome do
   mkdir 'chrome' unless File.directory? 'chrome'
-  system 'build/jspp src/chrome.js > chrome/github-markdown-preview.js'
+  file = JSPP File.read('src/chrome.js'), 'src'
+  File.open 'chrome/github-markdown-preview.js', 'w' do |f|
+    f.puts file
+  end
   copy 'src/core.css', 'chrome/'
   puts 'chrome/ done'
 end
