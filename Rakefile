@@ -14,7 +14,7 @@ task :userjs do
   tag = git_describe_tags.split('-').first || git_describe_tags
   tag.strip!
   commit = `git rev-list --full-history #{tag}.. -- src/ | wc -l`.strip
-  file = JSPP File.read('src/github-markdown-preview.js'), 'src'
+  file = JSPP 'src/github-markdown-preview.js'
   tag.slice! 0
   file.sub!(%r{^// *@version *$}, '\0' << tag << '.' << commit)
   File.open USERJS, 'w' do |f|
@@ -25,7 +25,7 @@ end
 
 task :chrome do
   mkdir 'chrome' unless File.directory? 'chrome'
-  file = JSPP File.read('src/chrome.js'), 'src'
+  file = JSPP 'src/chrome.js'
   File.open 'chrome/github-markdown-preview.js', 'w' do |f|
     f.puts file
   end
