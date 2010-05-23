@@ -956,7 +956,7 @@ var _DoCodeBlocks = function(text) {
 
 var hashBlock = function(text) {
 	text = text.replace(/(^\n+|\n+$)/g,"");
-	return "\n\n~K" + (g_html_blocks.push(text)-1) + "K\n\n";
+	return "\n\n~K" + (g_html_blocks.push(text)-1).toString() + "K\n\n";
 }
 
 
