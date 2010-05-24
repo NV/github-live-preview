@@ -75,17 +75,20 @@ if ($("button.create_issue").length) {
   $("button.create_issue").click(function() {
     if ($('#new_issue').length) {
       comments_form = $('#new_issue');
-      comment_preview = $('<div class="issue summary read open">\
+      comment_preview = $('<div class="issue summary read open comment-preview">\
         <div class="summary">\
+          <div class="voting_box"></div>\
           <div class="meta">\
             <h3 id="title">&nbsp;</h3>\
             <span class="info">by <a href="/'+ github_user +'">'+ github_user +'</a></span>\
           </div>\
         </div>\
-        <div class="body wikistyle"><p></p></div>\
+        <div class="details">\
+          <div class="body wikistyle"><p></p></div>\
+        </div>\
       </div>');
-      comment_title = comment_preview.children('.summary').children('.meta').children('#title');
-      comment_body = comment_preview.children('.body');
+      comment_title = comment_preview.find('#title');
+      comment_body = comment_preview.find('.body');
       comments_form.before(comment_preview);
       comments_form.children('#issue_title').bind('input', function input_handler(){
         comment_title.html( this.value );

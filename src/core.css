@@ -10,6 +10,9 @@
 .comment-preview + .reply .formatting {
   font-size: 90%;
 }
+.comment-preview .summary {
+  background: none !important;
+}
 
 #files .file,
 #readme {
