@@ -404,7 +404,7 @@ var hashElement = function(wholeMatch,m1) {
 	blockText = blockText.replace(/\n+$/g,"");
 
 	// Replace the element text with a marker ("~KxK" where x is its key)
-	blockText = "\n\n~K" + (g_html_blocks.push(blockText)-1) + "K\n\n";
+	blockText = "\n\n~K" + (g_html_blocks.push(blockText)-1).toString() + "K\n\n";
 
 	return blockText;
 };
