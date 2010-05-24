@@ -16,6 +16,7 @@
 // @description Live Markdown preview for commit’s comments, markdown files, and inbox messages
 // @version     
 // @copyright   2009+, Nikita Vasilyev
+// @contributor Erik Vold (http://erikvold.com/)
 // @licence     BSD
 // ==/UserScript==
 
