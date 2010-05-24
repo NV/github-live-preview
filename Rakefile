@@ -2,7 +2,6 @@ require 'rake/clean'
 require 'open-uri'
 require 'jspp'
 
-CLEAN.include('build/jspp')
 CLOBBER.include('build')
 
 USERJS = 'build/github-markdown-preview.user.js'
@@ -10,6 +9,7 @@ USERJS = 'build/github-markdown-preview.user.js'
 task :default => :userjs
 
 task :userjs do
+  mkdir 'build' unless File.directory? 'build'
   git_describe_tags = `git describe --tags`
   tag = git_describe_tags.split('-').first || git_describe_tags
   tag.strip!
