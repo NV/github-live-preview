@@ -18,6 +18,7 @@
 // @copyright   2009+, Nikita Vasilyev
 // @contributor Erik Vold (http://erikvold.com/)
 // @licence     BSD
+// @icon        http://s3.amazonaws.com/uso_ss/icon/65788/large.png
 // ==/UserScript==
 
 (function init(){
