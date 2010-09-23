@@ -18,7 +18,7 @@
 // @copyright   2009+, Nikita Vasilyev
 // @contributor Erik Vold (http://erikvold.com/)
 // @licence     BSD
-// @icon        http://s3.amazonaws.com/uso_ss/icon/65788/large.png
+// @icon        http://nv.github.com/github-live-preview/chrome/icon_48.png
 // ==/UserScript==
 
 (function init(){
