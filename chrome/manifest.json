@@ -1,0 +1,31 @@
+{
+  "name": "GitHub Markdown Preview",
+  "version": "0.3.2",
+  "description": "Live Markdown preview for commit’s comments, markdown files, issues, and inbox messages",
+  "icons": {
+    "32": "icon_32.png",
+    "48": "icon_48.png",
+    "64": "icon_64.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://github.com/*/commit/*",
+        "https://github.com/*/commit/*",
+        "http://github.com/inbox/*",
+        "https://github.com/inbox/*",
+        "http://github.com/*/*/issues*",
+        "https://github.com/*/*/issues*",
+        "http://github.com/*/*/blob/*/*.md",
+        "http://github.com/*/*/blob/*/*.markdown",
+        "http://github.com/*/*/blob/*/*.mdown",
+        "https://github.com/*/*/blob/*/*.md",
+        "https://github.com/*/*/blob/*/*.markdown",
+        "https://github.com/*/*/blob/*/*.mdown"
+      ],
+      "js": ["github-markdown-preview.js"],
+      "css": ["core.css"]
+    }
+  ],
+  "update_url": "http://clients2.google.com/service/update2/crx"
+}
