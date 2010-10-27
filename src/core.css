@@ -1,11 +1,11 @@
-.comment-preview,
-.comment-preview + form {
-  background-color: #FFFACC;
-  border-bottom-width: 0;
+.comment-preview {
+  position: relative;
 }
-.comment-preview A,
-.comment-preview + form A {
-  color: #41809d;
+.comment-preview .comment {
+  background-color: #FFFACC;
+}
+.comment-preview + form .previewable-comment-form {
+  margin-top: -2px;
 }
 .comment-preview + .reply .formatting {
   font-size: 90%;

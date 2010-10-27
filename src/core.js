@@ -5,23 +5,25 @@ var makeHtml = (new Showdown.converter).makeHtml,
     comments_form = $('#comments > form');
 
 function build_wikistyle_comment_preview(){
-  return $('<div class="comment wikistyle comment-preview">\
-    <div class="meta">\
-      <a href="/'+ github_user +'"><img alt="" class="gravatar" height="16" src="'+ gravatar_url.replace('-20', '-16').replace('s=20', 's=16') +'" width="16" /></a>\
-      <span>\
-        <b><a href="/'+ github_user +'">'+ github_user +'</a></b>\
-      </span>\
+  return $('<div class="comment wikistyle commentstyle comment-preview">\
+    <div class="comment">\
+      <div class="meta">\
+        <a href="/'+ github_user +'"><img alt="" class="gravatar" height="16" src="'+ gravatar_url.replace('-20', '-16').replace('s=20', 's=16') +'" width="16" /></a>\
+        <span>\
+          <b><a href="/'+ github_user +'">'+ github_user +'</a></b>\
+        </span>\
+      </div>\
+      <div class="body"><p></p></div>\
     </div>\
-    <div class="body"><p></p></div>\
   </div>');
 }
 
 if (comments_form.length) {
   // Commit comments
   comment_preview = build_wikistyle_comment_preview();
-  comment_body = comment_preview.children('.body');
+  comment_body = comment_preview.find('.body');
   comments_form.before(comment_preview);
-  comments_form.children('textarea').bind('input', function input_handler(){
+  comments_form.find('textarea').bind('input', function input_handler(){
     comment_body.html( makeHtml(this.value) );
   });
   comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ');
@@ -33,8 +35,8 @@ if (comments_form.length) {
     comments_form = $(comments_form);
     var comment_preview = build_wikistyle_comment_preview();
     comments_form.before(comment_preview);
-    var comment_preview_body = comment_preview.children('.body');
-    comments_form.children('textarea').bind('input', function input_handler(){
+    var comment_preview_body = comment_preview.find('.body');
+    comments_form.find('textarea').bind('input', function input_handler(){
       comment_preview_body.html( makeHtml(this.value) );
     });
   });
@@ -59,10 +61,10 @@ if (comments_form.length) {
         comment_title = comment_preview.find('#title');
         comment_body = comment_preview.find('.body');
         comments_form.before(comment_preview);
-        comments_form.children('#issue_title').bind('input', function input_handler(){
+        comments_form.find('#issue_title').bind('input', function input_handler(){
           comment_title.html( this.value );
         });
-        comments_form.children('textarea').bind('input', function input_handler(){
+        comments_form.find('textarea').bind('input', function input_handler(){
           comment_body.html( makeHtml(this.value) );
         });
       }
@@ -85,9 +87,9 @@ if (comments_form.length) {
     </div>\
     <div class="body wikistyle"></div>\
   </div>');
-  comment_body = comment_preview.children('.body');
+  comment_body = comment_preview.find('.body');
   comments_form.parent().before(comment_preview);
-  comments_form.children('textarea').bind('input', function input_handler(){
+  comments_form.find('textarea').bind('input', function input_handler(){
     comment_body.html( makeHtml(this.value) );
   });
   comments_form.find('.formatting').prepend('<a class="preview-link" href="http://github.com/NV/github-live-preview">Github Markdown Preview</a> &middot; ')
@@ -100,4 +102,3 @@ if (comments_form.length) {
     comment_body.html( makeHtml(this.value) );
   });
 }
-

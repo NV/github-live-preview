@@ -1,6 +1,6 @@
 {
   "name": "GitHub Markdown Preview",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Live Markdown preview for commit’s comments, markdown files, issues, and inbox messages",
   "icons": {
     "32": "icon_32.png",
