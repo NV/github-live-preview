@@ -1,4 +1,6 @@
-[![Commit comment](https://cloud.github.com/downloads/NV/github-live-preview/commit.gif)](http://nv.github.com/github-live-preview/examples/commit.html)
+**Not maintained any more. I cannot catch up with GitHub's layout changes**
+
+[![Commit comment](//cloud.github.com/downloads/NV/github-live-preview/commit.gif)](http://nv.github.com/github-live-preview/examples/commit.html)
 
 Demos: [README.markdown](http://nv.github.com/github-live-preview/examples/readme-markdown.html),
 [commit comments](http://nv.github.com/github-live-preview/examples/commit.html),
